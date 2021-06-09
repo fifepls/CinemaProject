@@ -18,5 +18,10 @@ public class MainPageController {
         return "news";
     }
 
+    @RequestMapping("/login")
+    public String getLoginPage(){
+        return "login";
+    }
+
     //public String
 }
