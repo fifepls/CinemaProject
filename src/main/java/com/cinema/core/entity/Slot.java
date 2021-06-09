@@ -14,13 +14,24 @@ public class Slot {
     @JoinColumn(name = "hall_id")
     private Hall hallSlot;
 
+    private Boolean isFree;
+
 
     public Slot() {
     }
 
-    public Slot(Long id, Hall hallSlot) {
+    public Slot(Long id, Hall hallSlot, Boolean isFree) {
         this.id = id;
         this.hallSlot = hallSlot;
+        this.isFree = isFree;
+    }
+
+    public Boolean getFree() {
+        return isFree;
+    }
+
+    public void setFree(Boolean free) {
+        isFree = free;
     }
 
     public Long getId() {
