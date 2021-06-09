@@ -20,6 +20,12 @@ public class Hall {
     public Hall() {
     }
 
+    public Hall(Long id, List<Session> sessions, List<Slot> slots) {
+        this.id = id;
+        this.sessions = sessions;
+        this.slots = slots;
+    }
+
     public Long getId() {
         return id;
     }

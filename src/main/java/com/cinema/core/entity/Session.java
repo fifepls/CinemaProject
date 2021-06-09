@@ -28,6 +28,14 @@ public class Session {
     public Session() {
     }
 
+    public Session(Long id, String title, BigDecimal ticketPrice, String session_time, Hall hall) {
+        this.id = id;
+        this.title = title;
+        this.ticketPrice = ticketPrice;
+        this.session_time = session_time;
+        this.hall = hall;
+    }
+
     public Long getId() {
         return id;
     }
