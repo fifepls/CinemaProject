@@ -21,7 +21,6 @@ public class FilmService {
         if(films == null){
             return Collections.emptyList();
         }
-
         return films;
     }
 }
