@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "slots")
-public class SlotEntity {
+public class Slot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -12,10 +12,10 @@ public class SlotEntity {
 
     @ManyToOne
     @JoinColumn(name = "hall_id")
-    private HallEntity hallSlot;
+    private Hall hallSlot;
 
 
-    public SlotEntity() {
+    public Slot() {
     }
 
     public Long getId() {
@@ -26,11 +26,11 @@ public class SlotEntity {
         this.id = id;
     }
 
-    public HallEntity getHallSlot() {
+    public Hall getHallSlot() {
         return hallSlot;
     }
 
-    public void setHallSlot(HallEntity hallSlot) {
+    public void setHallSlot(Hall hallSlot) {
         this.hallSlot = hallSlot;
     }
 }

@@ -5,19 +5,19 @@ import java.util.List;
 
 @Entity
 @Table(name = "halls")
-public class HallEntity {
+public class Hall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @OneToMany(mappedBy = "hall")
-    private List<SessionEntity> sessions;
+    private List<Session> sessions;
 
     @OneToMany(mappedBy = "hallSlot")
-    private List<SlotEntity> slots;
+    private List<Slot> slots;
 
-    public HallEntity() {
+    public Hall() {
     }
 
     public Long getId() {
@@ -28,19 +28,19 @@ public class HallEntity {
         this.id = id;
     }
 
-    public List<SessionEntity> getSessions() {
+    public List<Session> getSessions() {
         return sessions;
     }
 
-    public void setSessions(List<SessionEntity> sessions) {
+    public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
     }
 
-    public List<SlotEntity> getSlots() {
+    public List<Slot> getSlots() {
         return slots;
     }
 
-    public void setSlots(List<SlotEntity> slots) {
+    public void setSlots(List<Slot> slots) {
         this.slots = slots;
     }
 }

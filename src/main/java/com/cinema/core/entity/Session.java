@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "sessions")
-public class SessionEntity {
+public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,9 +23,9 @@ public class SessionEntity {
 
     @ManyToOne
     @JoinColumn(name = "hall_id")
-    private HallEntity hall;
+    private Hall hall;
 
-    public SessionEntity() {
+    public Session() {
     }
 
     public Long getId() {
@@ -60,11 +60,11 @@ public class SessionEntity {
         this.session_time = session_time;
     }
 
-    public HallEntity getHall() {
+    public Hall getHall() {
         return hall;
     }
 
-    public void setHall(HallEntity hall) {
+    public void setHall(Hall hall) {
         this.hall = hall;
     }
 }
