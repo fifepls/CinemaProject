@@ -18,6 +18,11 @@ public class Slot {
     public Slot() {
     }
 
+    public Slot(Long id, Hall hallSlot) {
+        this.id = id;
+        this.hallSlot = hallSlot;
+    }
+
     public Long getId() {
         return id;
     }
