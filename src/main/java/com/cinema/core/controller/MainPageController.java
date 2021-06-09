@@ -1,5 +1,7 @@
 package com.cinema.core.controller;
 
+import com.cinema.core.service.FilmService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -7,7 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainPageController {
 
     @RequestMapping("/home")
-    public String getMainPage(){
+    public String getHomePage(){
         return "home";
     }
+
+    @RequestMapping("/news")
+    public String getNewsPage(){
+        return "news";
+    }
+
+    //public String
 }
