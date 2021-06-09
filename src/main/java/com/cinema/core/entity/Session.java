@@ -11,9 +11,6 @@ public class Session {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "film_title", nullable = false)
-    private String title;
-
     @Column(name = "ticket_price", nullable = false)
     private BigDecimal ticketPrice;
 
@@ -25,15 +22,20 @@ public class Session {
     @JoinColumn(name = "hall_id")
     private Hall hall;
 
+
+    @ManyToOne
+    @JoinColumn(name = "film_id")
+    private Film film;
+
     public Session() {
     }
 
-    public Session(Long id, String title, BigDecimal ticketPrice, String session_time, Hall hall) {
+    public Session(Long id, BigDecimal ticketPrice, String session_time, Hall hall, Film film) {
         this.id = id;
-        this.title = title;
         this.ticketPrice = ticketPrice;
         this.session_time = session_time;
         this.hall = hall;
+        this.film = film;
     }
 
     public Long getId() {
@@ -42,14 +44,6 @@ public class Session {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public BigDecimal getTicketPrice() {
@@ -75,4 +69,13 @@ public class Session {
     public void setHall(Hall hall) {
         this.hall = hall;
     }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
+
 }
