@@ -7,12 +7,13 @@ import com.cinema.core.repository.FilmRepository;
 import com.cinema.core.repository.HallRepository;
 import com.cinema.core.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class SessionDao {
     private final SessionRepository sessionRepository;
     private final FilmRepository filmRepository;
