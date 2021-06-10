@@ -18,12 +18,12 @@ public class HallDao implements IHallDao {
         this.hallRepository = hallRepository;
     }
 
-    public Boolean addHall() throws DAOException {
+    public Hall addHall() throws DAOException {
         try {
             Hall newHall = new Hall();
             newHall.setSlots(initSlots(newHall));
             hallRepository.save(newHall);
-            return true;
+            return newHall;
         }catch (Exception e){
             throw new DAOException("failed add new hall", e);
         }
@@ -39,8 +39,7 @@ public class HallDao implements IHallDao {
     }
 
     private List<Slot> initSlots(Hall hall){
-        return Stream.of(new Slot(hall),
-                new Slot(hall),//1
+        return Stream.of(new Slot(hall),//1
                 new Slot(hall),//2
                 new Slot(hall),//3
                 new Slot(hall),//4
@@ -54,7 +53,8 @@ public class HallDao implements IHallDao {
                 new Slot(hall),//12
                 new Slot(hall),//13
                 new Slot(hall),//14
-                new Slot(hall)//15
+                new Slot(hall),//15
+                new Slot(hall)//16
             ).collect(Collectors.toList());
     }
 

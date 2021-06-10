@@ -6,6 +6,6 @@ import com.cinema.core.entity.Slot;
 import java.util.List;
 
 public interface IHallDao {
-    public Boolean addHall() throws DAOException;
+    public Hall addHall() throws DAOException;
     public Boolean removeHallById(Long id) throws DAOException;
 }
