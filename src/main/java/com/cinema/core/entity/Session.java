@@ -38,6 +38,13 @@ public class Session {
         this.film = film;
     }
 
+    public Session(BigDecimal ticketPrice, String session_time, Hall hall, Film film) {
+        this.ticketPrice = ticketPrice;
+        this.session_time = session_time;
+        this.hall = hall;
+        this.film = film;
+    }
+
     public Long getId() {
         return id;
     }
