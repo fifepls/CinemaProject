@@ -1,6 +1,5 @@
 package com.cinema.core.repository;
 
-import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 
