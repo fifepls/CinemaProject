@@ -1,11 +1,10 @@
 package com.cinema.core.service;
 
-import com.cinema.core.DAO.DAOException;
-import com.cinema.core.DAO.IFilmDao;
-import com.cinema.core.DAO.IHallDao;
-import com.cinema.core.DAO.ISessionDao;
+import com.cinema.core.DAO.*;
 import com.cinema.core.entity.Film;
+import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Session;
+import com.cinema.core.entity.Slot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +18,14 @@ public class AdminService {
     private final ISessionDao sessionDao;
     private final IHallDao hallDao;
     private final IFilmDao filmDao;
+    private final ISlotDao slotDao;
 
     @Autowired
-    public AdminService(ISessionDao sessionDao, IHallDao hallDao, IFilmDao filmDao) {
+    public AdminService(ISessionDao sessionDao, IHallDao hallDao, IFilmDao filmDao, ISlotDao slotDao) {
         this.sessionDao = sessionDao;
         this.hallDao = hallDao;
         this.filmDao = filmDao;
+        this.slotDao = slotDao;
     }
 
 
@@ -97,7 +98,9 @@ public class AdminService {
     public Boolean adminAddHall(){
         Boolean added = false;
         try {
-            added = hallDao.addHall();
+            Hall hall  = hallDao.addHall();
+            slotDao.addHallSlots(hall);
+            added = true;
         }catch (DAOException e){
             e.printStackTrace();
         }
