@@ -5,13 +5,12 @@ import com.cinema.core.entity.Slot;
 import com.cinema.core.repository.HallRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-public class HallDao {
+public class HallDao implements IHallDao {
     private final HallRepository hallRepository;
 
     @Autowired
@@ -30,7 +29,7 @@ public class HallDao {
         }
     }
 
-    public boolean removeHallById(Long id){
+    public Boolean removeHallById(Long id){
         try{
             hallRepository.deleteById(id);
             return true;

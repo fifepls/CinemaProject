@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class SessionDao {
+public class SessionDao implements ISessionDao{
     private final SessionRepository sessionRepository;
     private final FilmRepository filmRepository;
     private final HallRepository hallRepository;

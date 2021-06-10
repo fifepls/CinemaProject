@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class FilmDao {
+public class FilmDao implements IFilmDao {
     private final FilmRepository filmRepository;
 
     @Autowired
