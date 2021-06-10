@@ -17,9 +17,10 @@ public class FilmDao {
         this.filmRepository = filmRepository;
     }
 
-    public Boolean addFilm(Film film){ //method to add new film into database
+    public Boolean addFilm(String title, String description){ //method to add new film into database
         try{
-            filmRepository.save(film);//if saved true
+            Film newFilm = new Film(title, description);
+            filmRepository.save(newFilm);//if saved true
             return true;
         }catch (Exception e){//if not saved false
             return false;
