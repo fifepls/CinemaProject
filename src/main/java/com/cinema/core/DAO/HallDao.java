@@ -18,23 +18,23 @@ public class HallDao implements IHallDao {
         this.hallRepository = hallRepository;
     }
 
-    public Boolean addHall(){
+    public Boolean addHall() throws DAOException {
         try {
             Hall newHall = new Hall();
             newHall.setSlots(initSlots(newHall));
             hallRepository.save(newHall);
             return true;
         }catch (Exception e){
-            return false;
+            throw new DAOException("failed add new hall", e);
         }
     }
 
-    public Boolean removeHallById(Long id){
+    public Boolean removeHallById(Long id) throws DAOException {
         try{
             hallRepository.deleteById(id);
             return true;
         }catch (Exception e){
-            return false;
+            throw  new DAOException("failed to remove hall by id", e);
         }
     }
 

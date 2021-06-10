@@ -26,7 +26,7 @@ public class SessionDao implements ISessionDao{
         this.hallRepository = hallRepository;
     }
 
-    public boolean addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime){
+    public boolean addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime) throws DAOException {
         try{
             Optional<Film> filmOptional = filmRepository.findById(filmId);
             Optional<Hall> hallOptional = hallRepository.findById(hallId);
@@ -45,20 +45,20 @@ public class SessionDao implements ISessionDao{
             sessionRepository.save(newSession);
             return true;
         }catch (Exception e){
-            return false;
+            throw new DAOException("failed add session", e);
         }
     }
 
-    public  boolean removeSessionById(Long id){
+    public  boolean removeSessionById(Long id) throws DAOException {
         try{
             sessionRepository.deleteById(id);
             return true;
         }catch (Exception e){
-            return false;
+            throw new DAOException("failed remove session by id", e);
         }
     }
 
-    public List<Session> getAllSessionsByFilmId(Long filmId){
+    public List<Session> getAllSessionsByFilmId(Long filmId) throws DAOException {
         try{
             List<Session> sessions = sessionRepository.findAllByFilmId(filmId);
             if(sessions != null){
@@ -67,10 +67,7 @@ public class SessionDao implements ISessionDao{
                 return Collections.emptyList();
             }
         }catch (Exception e){
-            return Collections.emptyList();
+            throw new DAOException("filed to get all sessions by film id");
         }
     }
-
-
-
 }

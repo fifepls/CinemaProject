@@ -17,26 +17,26 @@ public class FilmDao implements IFilmDao {
         this.filmRepository = filmRepository;
     }
 
-    public Boolean addFilm(String title, String description){ //method to add new film into database
+    public Boolean addFilm(String title, String description) throws DAOException { //method to add new film into database
         try{
             Film newFilm = new Film(title, description);
             filmRepository.save(newFilm);//if saved true
             return true;
         }catch (Exception e){//if not saved false
-            return false;
+            throw new DAOException("add film exception", e);
         }
     }
 
-    public Boolean removeFilmById(Long id){ //method to remove film by film id
+    public Boolean removeFilmById(Long id) throws DAOException { //method to remove film by film id
         try{
             filmRepository.deleteById(id); //if removed true
             return true;
         }catch (Exception e){
-            return false; //if not removed false
+            throw new DAOException("remove film by id exception" + e);
         }
     }
 
-    public Boolean updateFilmById(Long id, String newTitle, String newDescription){//update film info
+    public Boolean updateFilmById(Long id, String newTitle, String newDescription) throws DAOException {//update film info
         try{
             Optional<Film> filmToUpdateOptional = filmRepository.findById(id);
             if(filmToUpdateOptional.isPresent()){ //if there is film with id
@@ -48,11 +48,11 @@ public class FilmDao implements IFilmDao {
             }
          return false;
         }catch (Exception e){
-            return false;
+            throw new DAOException("filed update film by id", e);
         }
     }
 
-    public List<Film> getListOfFilms(){
+    public List<Film> getListOfFilms() throws DAOException {
         try {
             List<Film> films = filmRepository.findAll(); //find all films
             if (films == null) {
@@ -60,7 +60,7 @@ public class FilmDao implements IFilmDao {
             }
             return films;//or return all films
         }catch (Exception e){
-            return Collections.emptyList();
+            throw new DAOException("failed to get an a list of Films", e);
         }
     }
 }
