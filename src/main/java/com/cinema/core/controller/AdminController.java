@@ -70,11 +70,12 @@ public class AdminController {
 
     @PostMapping("/add/hall")
     public String addHall(){
+        adminService.adminAddHall();
         return "halls";
     }
 
     @DeleteMapping("/rem/hall")
-    public String removeHall(@RequestParam(value = "hallId"), Long id){
+    public String removeHall(@RequestParam(value = "hallId") Long id){
         adminService.adminRemoveHall(id);
         return "halls";
     }
