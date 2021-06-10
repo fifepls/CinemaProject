@@ -58,7 +58,7 @@ public class AdminService {
         return updated;
     }
 
-    public List<Film> getAllFilms(){
+    public List<Film> adminGetAllFilms(){
         try{
             return filmDao.getListOfFilms();
         }catch (DAOException e){
@@ -113,8 +113,4 @@ public class AdminService {
         }
         return removed;
     }
-
-
-
-
 }
