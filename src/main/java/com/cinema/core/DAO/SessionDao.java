@@ -26,7 +26,7 @@ public class SessionDao implements ISessionDao{
         this.hallRepository = hallRepository;
     }
 
-    public boolean addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime) throws DAOException {
+    public Boolean addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime) throws DAOException {
         try{
             Optional<Film> filmOptional = filmRepository.findById(filmId);
             Optional<Hall> hallOptional = hallRepository.findById(hallId);
@@ -49,7 +49,7 @@ public class SessionDao implements ISessionDao{
         }
     }
 
-    public  boolean removeSessionById(Long id) throws DAOException {
+    public  Boolean removeSessionById(Long id) throws DAOException {
         try{
             sessionRepository.deleteById(id);
             return true;
