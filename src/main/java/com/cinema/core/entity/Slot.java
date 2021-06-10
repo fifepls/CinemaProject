@@ -26,6 +26,10 @@ public class Slot {
         this.isFree = isFree;
     }
 
+    public Slot(Hall hallSlot) {
+        this.hallSlot = hallSlot;
+    }
+
     public Boolean getFree() {
         return isFree;
     }
