@@ -14,7 +14,8 @@ public class Slot {
     @JoinColumn(name = "hall_id")
     private Hall hallSlot;
 
-    private Boolean isFree;
+    @Column(name = "is_free")
+    private Boolean isFree = true;
 
 
     public Slot() {
