@@ -4,7 +4,6 @@ import com.cinema.core.DAO.*;
 import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Session;
-import com.cinema.core.entity.Slot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
