@@ -1,13 +1,16 @@
 package com.cinema.core.controller;
 
+import com.cinema.core.entity.Film;
+import com.cinema.core.entity.Session;
 import com.cinema.core.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/admin")
 //дописать преауторайзы для методов
 public class AdminController {
@@ -20,64 +23,61 @@ public class AdminController {
     }
 
     @PostMapping("/add/film")
-    public String addFilm(@RequestParam(value = "title")String title,
+    public Boolean addFilm(@RequestParam(value = "title")String title,
                           @RequestParam(value = "description") String description){
-        adminService.adminAddNewFilm(title,description);
-        return "adminFilms";
+        return adminService.adminAddNewFilm(title,description);
     }
 
     @GetMapping("/get/films")
-    public String getFilms(){
-        adminService.adminGetAllFilms();
-        return "adminFilms";
+    public List<Film> getFilms(){
+        return adminService.adminGetAllFilms();
     }
 
     @DeleteMapping("/rem/film")
-    public String removeFilm(@RequestParam(value = "id")Long id){
+    public Boolean removeFilm(@RequestParam(value = "id")Long id){
         adminService.adminRemoveFilmById(id);
-        return "adminFilms";
+        return adminService.adminRemoveFilmById(id);
     }
 
     @PostMapping("/update/film")
-    public String updateFilm(@RequestParam(value = "id") Long id,
+    public Boolean updateFilm(@RequestParam(value = "id") Long id,
                              @RequestParam(value = "title")String title,
                              @RequestParam(value = "description")String description){
         adminService.adminUpdateFilmById(id,title,description);
-        return "adminFilms";
+        return adminService.adminUpdateFilmById(id,title,description);
     }
 
 
     @PostMapping("/add/session")
-    public String addSession(@RequestParam(value = "filmId") Long id,
+    public Boolean addSession(@RequestParam(value = "filmId") Long id,
                              @RequestParam(value = "ticketPrice") BigDecimal ticketPrice,
                              @RequestParam(value = "hallId") Long hallId,
                              @RequestParam(value = "sessionTime") String sessionTime){
-        adminService.adminAddSession(id, ticketPrice, hallId, sessionTime);
-        return "sessions";
+        return adminService.adminAddSession(id, ticketPrice, hallId, sessionTime);
     }
 
     @DeleteMapping("/rem/session")
-    public String removeSessionById(@RequestParam(value = "sessionId") Long sessionId){
+    public Boolean removeSessionById(@RequestParam(value = "sessionId") Long sessionId){
         adminService.adminRemoveSessionById(sessionId);
-        return "sessions";
+        return adminService.adminRemoveSessionById(sessionId);
     }
 
     @GetMapping("/get/sessions")
-    public String getAllSessionsByFilmId(@RequestParam(value = "filmId") Long filmId){
+    public List<Session> getAllSessionsByFilmId(@RequestParam(value = "filmId") Long filmId){
         adminService.adminGetAllSessionsByFilmId(filmId);
-        return "sessions";
+        return adminService.adminGetAllSessionsByFilmId(filmId);
     }
 
     @PostMapping("/add/hall")
-    public String addHall(){
+    public Boolean addHall(){
         adminService.adminAddHall();
-        return "halls";
+        return adminService.adminAddHall();
     }
 
     @DeleteMapping("/rem/hall")
-    public String removeHall(@RequestParam(value = "hallId") Long id){
+    public Boolean removeHall(@RequestParam(value = "hallId") Long id){
         adminService.adminRemoveHall(id);
-        return "halls";
+        return adminService.adminRemoveHall(id);
     }
 
 
