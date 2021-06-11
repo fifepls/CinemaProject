@@ -18,6 +18,10 @@ public class Slot {
     @Column(name = "is_free")
     private Boolean isFree = true;
 
+    @Column(name = "position")
+    private Integer slotPosition;
+
+
 
     @OneToOne(mappedBy = "slot")
     Ticket ticket;
@@ -31,8 +35,9 @@ public class Slot {
         this.isFree = isFree;
     }
 
-    public Slot(Hall hallSlot) {
+    public Slot(Hall hallSlot,Integer slotPosition) {
         this.hallSlot = hallSlot;
+        this.slotPosition = slotPosition;
     }
 
     public Boolean getFree() {
@@ -57,5 +62,13 @@ public class Slot {
 
     public void setHallSlot(Hall hallSlot) {
         this.hallSlot = hallSlot;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

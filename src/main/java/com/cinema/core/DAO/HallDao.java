@@ -39,24 +39,33 @@ public class HallDao implements IHallDao {
     }
 
     private List<Slot> initSlots(Hall hall){
-        return Stream.of(new Slot(hall),//1
-                new Slot(hall),//2
-                new Slot(hall),//3
-                new Slot(hall),//4
-                new Slot(hall),//5
-                new Slot(hall),//6
-                new Slot(hall),//7
-                new Slot(hall),//8
-                new Slot(hall),//9
-                new Slot(hall),//10
-                new Slot(hall),//11
-                new Slot(hall),//12
-                new Slot(hall),//13
-                new Slot(hall),//14
-                new Slot(hall),//15
-                new Slot(hall)//16
+        return Stream.of(new Slot(hall,1),//1
+                new Slot(hall,2),//2
+                new Slot(hall,3),//3
+                new Slot(hall,4),//4
+                new Slot(hall,5),//5
+                new Slot(hall,6),//6
+                new Slot(hall,7),//7
+                new Slot(hall,8),//8
+                new Slot(hall,9),//9
+                new Slot(hall,10),//10
+                new Slot(hall,11),//11
+                new Slot(hall, 12),//12
+                new Slot(hall,13),//13
+                new Slot(hall,14),//14
+                new Slot(hall,15),//15
+                new Slot(hall,16)//16
             ).collect(Collectors.toList());
     }
+
+    /*public List<Slot> getAllHallSlots(Hall hall) throws DAOException {
+        try{
+            return hall.getSlots()
+
+        }catch (Exception e){
+            throw new DAOException("failed to get all slots for hall",e);
+        }
+    }*/
 
 
 }

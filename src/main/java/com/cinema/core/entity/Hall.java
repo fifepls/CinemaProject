@@ -49,4 +49,5 @@ public class Hall {
     public void setSlots(List<Slot> slots) {
         this.slots = slots;
     }
+
 }
