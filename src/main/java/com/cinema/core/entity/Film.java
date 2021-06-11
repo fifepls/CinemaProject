@@ -22,6 +22,7 @@ public class Film {
     @OneToMany(mappedBy = "film")
     private List<Session> sessions;
 
+
     public Film() {
     }
 

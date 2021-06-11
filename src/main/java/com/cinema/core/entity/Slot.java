@@ -1,6 +1,7 @@
 package com.cinema.core.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "slots")
@@ -17,6 +18,9 @@ public class Slot {
     @Column(name = "is_free")
     private Boolean isFree = true;
 
+
+    @OneToOne(mappedBy = "slot")
+    Ticket ticket;
 
     public Slot() {
     }

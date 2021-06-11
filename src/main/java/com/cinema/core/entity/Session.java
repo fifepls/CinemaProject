@@ -2,6 +2,7 @@ package com.cinema.core.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "sessions")
@@ -26,6 +27,12 @@ public class Session {
     @ManyToOne
     @JoinColumn(name = "film_id")
     private Film film;
+
+
+    @OneToMany(mappedBy = "session")
+    List<Ticket> tickets;
+
+
 
     public Session() {
     }
