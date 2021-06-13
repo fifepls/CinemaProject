@@ -2,7 +2,8 @@ package com.cinema.core.controller;
 
 import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Session;
-import com.cinema.core.service.AdminService;
+import com.cinema.core.service.IAdminService;
+import com.cinema.core.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +15,10 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final AdminService adminService;
+    private final IAdminService adminService;
 
     @Autowired
-    public AdminController(AdminService adminService) {
+    public AdminController(AdminServiceImpl adminService) {
         this.adminService = adminService;
     }
 

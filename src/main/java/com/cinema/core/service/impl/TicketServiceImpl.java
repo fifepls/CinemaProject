@@ -1,15 +1,16 @@
-package com.cinema.core.service;
+package com.cinema.core.service.impl;
 
 import com.cinema.core.DAO.DAOException;
 import com.cinema.core.DAO.ITicketDao;
+import com.cinema.core.service.ITicketService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TicketService {
+public class TicketServiceImpl implements ITicketService {
 
     private final ITicketDao ticketDao;
 
-    public TicketService(ITicketDao ticketDao) {
+    public TicketServiceImpl(ITicketDao ticketDao) {
         this.ticketDao = ticketDao;
     }
 

@@ -1,9 +1,10 @@
-package com.cinema.core.service;
+package com.cinema.core.service.impl;
 
 import com.cinema.core.DAO.*;
 import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Session;
+import com.cinema.core.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +14,14 @@ import java.util.List;
 
 
 @Service
-public class AdminService {
+public class AdminServiceImpl implements IAdminService {
     private final ISessionDao sessionDao;
     private final IHallDao hallDao;
     private final IFilmDao filmDao;
     private final ISlotDao slotDao;
 
     @Autowired
-    public AdminService(ISessionDao sessionDao, IHallDao hallDao, IFilmDao filmDao, ISlotDao slotDao) {
+    public AdminServiceImpl(ISessionDao sessionDao, IHallDao hallDao, IFilmDao filmDao, ISlotDao slotDao) {
         this.sessionDao = sessionDao;
         this.hallDao = hallDao;
         this.filmDao = filmDao;
