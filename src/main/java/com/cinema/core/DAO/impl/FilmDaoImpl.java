@@ -1,5 +1,7 @@
-package com.cinema.core.DAO;
+package com.cinema.core.DAO.impl;
 
+import com.cinema.core.DAO.DAOException;
+import com.cinema.core.DAO.IFilmDao;
 import com.cinema.core.entity.Film;
 import com.cinema.core.repository.FilmRepository;
 import org.slf4j.Logger;
@@ -11,13 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class FilmDao implements IFilmDao {
+public class FilmDaoImpl implements IFilmDao {
     private final FilmRepository filmRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(FilmDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(FilmDaoImpl.class);
 
     @Autowired
-    public FilmDao(FilmRepository filmRepository) {
+    public FilmDaoImpl(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
     }
 

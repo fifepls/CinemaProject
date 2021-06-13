@@ -1,5 +1,7 @@
-package com.cinema.core.DAO;
+package com.cinema.core.DAO.impl;
 
+import com.cinema.core.DAO.DAOException;
+import com.cinema.core.DAO.ISlotDao;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Slot;
 import com.cinema.core.repository.SlotRepository;
@@ -9,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SlotDao implements ISlotDao{
+public class SlotDaoImpl implements ISlotDao {
     private final SlotRepository slotRepository;
-    private static final Logger logger = LoggerFactory.getLogger(SlotDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(SlotDaoImpl.class);
 
     @Autowired
-    public SlotDao(SlotRepository slotRepository) {
+    public SlotDaoImpl(SlotRepository slotRepository) {
         this.slotRepository = slotRepository;
     }
 

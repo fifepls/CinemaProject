@@ -1,5 +1,7 @@
-package com.cinema.core.DAO;
+package com.cinema.core.DAO.impl;
 
+import com.cinema.core.DAO.DAOException;
+import com.cinema.core.DAO.ISessionDao;
 import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Session;
@@ -16,14 +18,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class SessionDao implements ISessionDao{
+public class SessionDaoImpl implements ISessionDao {
     private final SessionRepository sessionRepository;
     private final FilmRepository filmRepository;
     private final HallRepository hallRepository;
-    private static final Logger logger = LoggerFactory.getLogger(SessionDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(SessionDaoImpl.class);
 
     @Autowired
-    public SessionDao(SessionRepository sessionRepository, FilmRepository filmRepository, HallRepository hallRepository) {
+    public SessionDaoImpl(SessionRepository sessionRepository, FilmRepository filmRepository, HallRepository hallRepository) {
         this.sessionRepository = sessionRepository;
         this.filmRepository = filmRepository;
         this.hallRepository = hallRepository;

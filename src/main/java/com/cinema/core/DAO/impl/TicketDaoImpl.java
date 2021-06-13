@@ -1,5 +1,7 @@
-package com.cinema.core.DAO;
+package com.cinema.core.DAO.impl;
 
+import com.cinema.core.DAO.DAOException;
+import com.cinema.core.DAO.ITicketDao;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Session;
 import com.cinema.core.entity.Slot;
@@ -16,15 +18,15 @@ import java.util.List;
 
 
 @Component
-public class TicketDao implements ITicketDao{
-    private static final Logger logger = LoggerFactory.getLogger(TicketDao.class);
+public class TicketDaoImpl implements ITicketDao {
+    private static final Logger logger = LoggerFactory.getLogger(TicketDaoImpl.class);
     private final TicketRepository ticketRepository;
     private final SessionRepository sessionRepository;
     private final SlotRepository slotRepository;
 
     @Autowired
-    public TicketDao(TicketRepository ticketRepository, SessionRepository sessionRepository,
-                     SlotRepository slotRepository) {
+    public TicketDaoImpl(TicketRepository ticketRepository, SessionRepository sessionRepository,
+                         SlotRepository slotRepository) {
         this.ticketRepository = ticketRepository;
         this.sessionRepository = sessionRepository;
         this.slotRepository = slotRepository;

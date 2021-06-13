@@ -1,5 +1,7 @@
-package com.cinema.core.DAO;
+package com.cinema.core.DAO.impl;
 
+import com.cinema.core.DAO.DAOException;
+import com.cinema.core.DAO.IHallDao;
 import com.cinema.core.entity.Hall;
 import com.cinema.core.entity.Slot;
 import com.cinema.core.repository.HallRepository;
@@ -12,12 +14,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-public class HallDao implements IHallDao {
+public class HallDaoImpl implements IHallDao {
     private final HallRepository hallRepository;
-    private static final Logger logger = LoggerFactory.getLogger(HallDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(HallDaoImpl.class);
 
     @Autowired
-    public HallDao(HallRepository hallRepository) {
+    public HallDaoImpl(HallRepository hallRepository) {
         this.hallRepository = hallRepository;
     }
 
