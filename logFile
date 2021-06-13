@@ -1,46 +1,90 @@
-2021-06-13 19:28:59.295  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : Starting CinemaProjectApplication using Java 14.0.1 on DESKTOP-0OGP9H1 with PID 5792 (C:\Users\User\Desktop\cinemaProject\target\classes started by User in C:\Users\User\Desktop\cinemaProject)
-2021-06-13 19:28:59.297  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : No active profile set, falling back to default profiles: default
-2021-06-13 19:28:59.356  WARN 5792 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-2021-06-13 19:28:59.880  INFO 5792 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-06-13 19:28:59.945  INFO 5792 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
-2021-06-13 19:29:00.204  INFO 5792 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@332820f4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-06-13 19:29:00.209  INFO 5792 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2021-06-13 19:29:00.400  INFO 5792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-13 19:29:00.408  INFO 5792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-13 19:29:00.408  INFO 5792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
-2021-06-13 19:29:00.506  INFO 5792 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-13 19:29:00.506  INFO 5792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1166 ms
-2021-06-13 19:29:00.628  INFO 5792 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-06-13 19:29:00.772  INFO 5792 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-06-13 19:29:00.812  INFO 5792 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-06-13 19:29:00.848  INFO 5792 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.31.Final
-2021-06-13 19:29:00.941  INFO 5792 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-06-13 19:29:01.021  INFO 5792 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
-2021-06-13 19:29:01.763  INFO 5792 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-06-13 19:29:01.770  INFO 5792 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-06-13 19:29:02.142  WARN 5792 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
-2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
-2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
-2021-06-13 19:29:02.312  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6148827c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7dfec0bc, org.springframework.security.web.header.HeaderWriterFilter@6fe9c048, org.springframework.security.web.authentication.logout.LogoutFilter@44e4cf8a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1bf52f10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52ccf197, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54530644, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4da9da6c, org.springframework.security.web.session.SessionManagementFilter@1ddba7a0, org.springframework.security.web.access.ExceptionTranslationFilter@c7cf8c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7aca299e]
-2021-06-13 19:29:02.484  INFO 5792 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2021-06-13 19:29:02.662  INFO 5792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-13 19:29:02.671  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : Started CinemaProjectApplication in 3.81 seconds (JVM running for 4.427)
-2021-06-13 19:29:02.672  INFO 5792 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
-2021-06-13 19:29:02.674  INFO 5792 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
-2021-06-13 19:29:02.674 ERROR 5792 --- [main] c.cinema.core.CinemaProjectApplication   : hello
-2021-06-13 19:34:11.034  INFO 5792 --- [http-nio-8080-exec-1] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
- Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
-
-java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x87ugu0xa40xa00xb80xa80xd10xec0x060x110xc50xf9$@0x090xe10xd980xa00x0f0xeb0xee0xfa0xb60xb60xca@0xe7b0x01 ]. HTTP method names must be tokens
-	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.46.jar:9.0.46]
-	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
-
+2021-06-14 01:00:25.647  INFO 18824 --- [main] c.cinema.core.CinemaProjectApplication   : Starting CinemaProjectApplication using Java 14.0.1 on DESKTOP-0OGP9H1 with PID 18824 (C:\Users\User\Desktop\cinemaProject\target\classes started by User in C:\Users\User\Desktop\cinemaProject)
+2021-06-14 01:00:25.682  INFO 18824 --- [main] c.cinema.core.CinemaProjectApplication   : No active profile set, falling back to default profiles: default
+2021-06-14 01:00:25.785  WARN 18824 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-06-14 01:00:26.410  INFO 18824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-14 01:00:26.484  INFO 18824 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2021-06-14 01:00:26.736  INFO 18824 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@34b27915' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:00:26.739  INFO 18824 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:00:26.936  INFO 18824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-14 01:00:26.945  INFO 18824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-14 01:00:26.946  INFO 18824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-14 01:00:27.041  INFO 18824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-14 01:00:27.042  INFO 18824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2021-06-14 01:00:27.165  INFO 18824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-14 01:00:27.330  INFO 18824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-14 01:00:27.369  INFO 18824 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-14 01:00:27.406  INFO 18824 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.31.Final
+2021-06-14 01:00:27.496  INFO 18824 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-14 01:00:27.584  INFO 18824 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-06-14 01:00:28.354  INFO 18824 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-14 01:00:28.362  INFO 18824 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-14 01:00:28.745  WARN 18824 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-14 01:00:28.865  INFO 18824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-06-14 01:00:28.865  INFO 18824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-06-14 01:00:28.865  INFO 18824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-06-14 01:00:28.897  INFO 18824 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@355b53cc, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ae87e38, org.springframework.security.web.header.HeaderWriterFilter@666b1244, org.springframework.security.web.authentication.logout.LogoutFilter@7978550b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28888124, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50930bff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ea6faf0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2568611c, org.springframework.security.web.session.SessionManagementFilter@789d8fd6, org.springframework.security.web.access.ExceptionTranslationFilter@3cc817bd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d667b59]
+2021-06-14 01:00:29.160  INFO 18824 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-14 01:00:29.357  INFO 18824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-14 01:00:29.369  INFO 18824 --- [main] c.cinema.core.CinemaProjectApplication   : Started CinemaProjectApplication in 4.226 seconds (JVM running for 5.194)
+2021-06-14 01:00:29.370  INFO 18824 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-06-14 01:00:29.372  INFO 18824 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-06-14 01:00:40.745  INFO 11636 --- [main] c.cinema.core.CinemaProjectApplication   : Starting CinemaProjectApplication using Java 14.0.1 on DESKTOP-0OGP9H1 with PID 11636 (C:\Users\User\Desktop\cinemaProject\target\classes started by User in C:\Users\User\Desktop\cinemaProject)
+2021-06-14 01:00:40.768  INFO 11636 --- [main] c.cinema.core.CinemaProjectApplication   : No active profile set, falling back to default profiles: default
+2021-06-14 01:00:40.881  WARN 11636 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-06-14 01:00:41.549  INFO 11636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-14 01:00:41.631  INFO 11636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 6 JPA repository interfaces.
+2021-06-14 01:00:41.927  INFO 11636 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4d192aef' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:00:41.934  INFO 11636 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:00:42.130  INFO 11636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-14 01:00:42.139  INFO 11636 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-14 01:00:42.140  INFO 11636 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-14 01:00:42.237  INFO 11636 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-14 01:00:42.238  INFO 11636 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1419 ms
+2021-06-14 01:00:42.363  INFO 11636 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-14 01:00:42.507  INFO 11636 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-14 01:00:42.545  INFO 11636 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-14 01:00:42.580  INFO 11636 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.31.Final
+2021-06-14 01:00:42.674  INFO 11636 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-14 01:00:42.762  INFO 11636 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-06-14 01:00:43.618  INFO 11636 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-14 01:00:43.625  INFO 11636 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-14 01:00:44.001  WARN 11636 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-14 01:00:44.128  INFO 11636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-06-14 01:00:44.128  INFO 11636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-06-14 01:00:44.129  INFO 11636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-06-14 01:00:44.166  INFO 11636 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67671db1, org.springframework.security.web.context.SecurityContextPersistenceFilter@45635ae1, org.springframework.security.web.header.HeaderWriterFilter@13809363, org.springframework.security.web.authentication.logout.LogoutFilter@54530644, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1d6a22dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4aea57dc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66d61298, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e6f5842, org.springframework.security.web.session.SessionManagementFilter@58ad0586, org.springframework.security.web.access.ExceptionTranslationFilter@17fb5184, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4769378c]
+2021-06-14 01:00:44.334  INFO 11636 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-14 01:00:44.509  INFO 11636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-14 01:00:44.519  INFO 11636 --- [main] c.cinema.core.CinemaProjectApplication   : Started CinemaProjectApplication in 4.258 seconds (JVM running for 5.092)
+2021-06-14 01:00:44.520  INFO 11636 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-06-14 01:00:44.521  INFO 11636 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-06-14 01:06:53.938  INFO 10912 --- [main] c.cinema.core.CinemaProjectApplication   : Starting CinemaProjectApplication using Java 14.0.1 on DESKTOP-0OGP9H1 with PID 10912 (C:\Users\User\Desktop\cinemaProject\target\classes started by User in C:\Users\User\Desktop\cinemaProject)
+2021-06-14 01:06:53.940  INFO 10912 --- [main] c.cinema.core.CinemaProjectApplication   : No active profile set, falling back to default profiles: default
+2021-06-14 01:06:54.015  WARN 10912 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-06-14 01:06:54.574  INFO 10912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-14 01:06:54.654  INFO 10912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 6 JPA repository interfaces.
+2021-06-14 01:06:54.903  INFO 10912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@bfc14b9' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:06:54.907  INFO 10912 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-14 01:06:55.106  INFO 10912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-14 01:06:55.114  INFO 10912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-14 01:06:55.115  INFO 10912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-14 01:06:55.204  INFO 10912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-14 01:06:55.204  INFO 10912 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1212 ms
+2021-06-14 01:06:55.329  INFO 10912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-14 01:06:55.468  INFO 10912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-14 01:06:55.510  INFO 10912 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-14 01:06:55.543  INFO 10912 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.31.Final
+2021-06-14 01:06:55.636  INFO 10912 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-14 01:06:55.720  INFO 10912 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-06-14 01:06:56.468  INFO 10912 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-14 01:06:56.476  INFO 10912 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-14 01:06:56.861  WARN 10912 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-14 01:06:56.992  INFO 10912 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-06-14 01:06:56.992  INFO 10912 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-06-14 01:06:56.992  INFO 10912 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-06-14 01:06:57.022  INFO 10912 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7bc8da3f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ee22768, org.springframework.security.web.header.HeaderWriterFilter@1e27bb89, org.springframework.security.web.authentication.logout.LogoutFilter@1ddba7a0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e9cb95, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@306bf4c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@184bb873, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7978550b, org.springframework.security.web.session.SessionManagementFilter@746f8520, org.springframework.security.web.access.ExceptionTranslationFilter@417751d3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5dfec221]
+2021-06-14 01:06:57.194  INFO 10912 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-14 01:06:57.369  INFO 10912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-14 01:06:57.379  INFO 10912 --- [main] c.cinema.core.CinemaProjectApplication   : Started CinemaProjectApplication in 3.854 seconds (JVM running for 4.472)
+2021-06-14 01:06:57.380  INFO 10912 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-06-14 01:06:57.381  INFO 10912 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC

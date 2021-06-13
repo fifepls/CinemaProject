@@ -21,5 +21,4 @@ public class MainPageController {
         return "login";
     }
 
-    //public String
 }
