@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
-//дописать преауторайзы для методов
 public class AdminController {
 
     private final AdminService adminService;
