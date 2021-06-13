@@ -1,5 +1,6 @@
 package com.cinema.core.controller;
 
+import com.cinema.core.service.ITicketService;
 import com.cinema.core.service.impl.TicketServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {
-    private final TicketServiceImpl ticketService;
+    private final ITicketService ticketService;
 
     public TicketController(TicketServiceImpl ticketService) {
         this.ticketService = ticketService;
