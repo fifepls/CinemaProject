@@ -2,8 +2,8 @@ package com.cinema.core.DAO;
 
 import com.cinema.core.entity.Film;
 import com.cinema.core.repository.FilmRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.Collections;
@@ -14,7 +14,7 @@ import java.util.Optional;
 public class FilmDao implements IFilmDao {
     private final FilmRepository filmRepository;
 
-    private static final Logger logger = LogManager.getLogger(FilmDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(FilmDao.class);
 
     @Autowired
     public FilmDao(FilmRepository filmRepository) {

@@ -6,8 +6,8 @@ import com.cinema.core.entity.Session;
 import com.cinema.core.repository.FilmRepository;
 import com.cinema.core.repository.HallRepository;
 import com.cinema.core.repository.SessionRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
@@ -20,7 +20,7 @@ public class SessionDao implements ISessionDao{
     private final SessionRepository sessionRepository;
     private final FilmRepository filmRepository;
     private final HallRepository hallRepository;
-    private static final Logger logger = LogManager.getLogger(HallDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(SessionDao.class);
 
     @Autowired
     public SessionDao(SessionRepository sessionRepository, FilmRepository filmRepository, HallRepository hallRepository) {

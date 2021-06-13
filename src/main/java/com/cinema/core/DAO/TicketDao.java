@@ -7,8 +7,8 @@ import com.cinema.core.entity.Ticket;
 import com.cinema.core.repository.SessionRepository;
 import com.cinema.core.repository.SlotRepository;
 import com.cinema.core.repository.TicketRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 @Component
 public class TicketDao implements ITicketDao{
-    private static final Logger logger = LogManager.getLogger(HallDao.class);
+    private static final Logger logger = LoggerFactory.getLogger(TicketDao.class);
     private final TicketRepository ticketRepository;
     private final SessionRepository sessionRepository;
     private final SlotRepository slotRepository;
