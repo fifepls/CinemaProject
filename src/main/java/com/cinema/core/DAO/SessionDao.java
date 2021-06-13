@@ -6,6 +6,8 @@ import com.cinema.core.entity.Session;
 import com.cinema.core.repository.FilmRepository;
 import com.cinema.core.repository.HallRepository;
 import com.cinema.core.repository.SessionRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
@@ -18,6 +20,7 @@ public class SessionDao implements ISessionDao{
     private final SessionRepository sessionRepository;
     private final FilmRepository filmRepository;
     private final HallRepository hallRepository;
+    private static final Logger logger = LogManager.getLogger(HallDao.class);
 
     @Autowired
     public SessionDao(SessionRepository sessionRepository, FilmRepository filmRepository, HallRepository hallRepository) {
@@ -45,6 +48,7 @@ public class SessionDao implements ISessionDao{
             sessionRepository.save(newSession);
             return true;
         }catch (Exception e){
+            logger.error("failed to add session", e);
             throw new DAOException("failed add session", e);
         }
     }
@@ -54,6 +58,7 @@ public class SessionDao implements ISessionDao{
             sessionRepository.deleteById(id);
             return true;
         }catch (Exception e){
+            logger.error("failed to remove session by id",e);
             throw new DAOException("failed remove session by id", e);
         }
     }
@@ -67,6 +72,7 @@ public class SessionDao implements ISessionDao{
                 return Collections.emptyList();
             }
         }catch (Exception e){
+            logger.error("failed to get all sessions by film id",e);
             throw new DAOException("filed to get all sessions by film id");
         }
     }

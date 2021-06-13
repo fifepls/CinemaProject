@@ -2,6 +2,8 @@ package com.cinema.core.DAO;
 
 import com.cinema.core.entity.Film;
 import com.cinema.core.repository.FilmRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.Collections;
@@ -11,6 +13,8 @@ import java.util.Optional;
 @Component
 public class FilmDao implements IFilmDao {
     private final FilmRepository filmRepository;
+
+    private static final Logger logger = LogManager.getLogger(FilmDao.class);
 
     @Autowired
     public FilmDao(FilmRepository filmRepository) {
@@ -23,6 +27,7 @@ public class FilmDao implements IFilmDao {
             filmRepository.save(newFilm);//if saved true
             return true;
         }catch (Exception e){//if not saved false
+            logger.error("failed to add new film", e);
             throw new DAOException("add film exception", e);
         }
     }
@@ -32,7 +37,9 @@ public class FilmDao implements IFilmDao {
             filmRepository.deleteById(id); //if removed true
             return true;
         }catch (Exception e){
+            logger.error("failed to remove film by id", e);
             throw new DAOException("remove film by id exception" + e);
+
         }
     }
 
@@ -48,6 +55,7 @@ public class FilmDao implements IFilmDao {
             }
          return false;
         }catch (Exception e){
+            logger.error("failed to update film by id", e);
             throw new DAOException("filed update film by id", e);
         }
     }
@@ -60,6 +68,7 @@ public class FilmDao implements IFilmDao {
             }
             return films;//or return all films
         }catch (Exception e){
+            logger.error("failed to get all films",e);
             throw new DAOException("failed to get an a list of Films", e);
         }
     }

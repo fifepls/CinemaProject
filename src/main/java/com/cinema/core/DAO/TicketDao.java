@@ -7,6 +7,8 @@ import com.cinema.core.entity.Ticket;
 import com.cinema.core.repository.SessionRepository;
 import com.cinema.core.repository.SlotRepository;
 import com.cinema.core.repository.TicketRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +17,7 @@ import java.util.List;
 
 @Component
 public class TicketDao implements ITicketDao{
-
+    private static final Logger logger = LogManager.getLogger(HallDao.class);
     private final TicketRepository ticketRepository;
     private final SessionRepository sessionRepository;
     private final SlotRepository slotRepository;
@@ -37,7 +39,12 @@ public class TicketDao implements ITicketDao{
             List<Slot> slots = hall.getSlots();
 
             if(!slots.contains(slot)){
-                throw new DAOException("slot with id " +slotId + " not in this hall");
+                try{
+                    throw new DAOException("this slot not in this hall error");
+                }catch (Exception e){
+                    logger.error("this slot not in this hall error", e);
+                    throw new DAOException("slot with id " +slotId + " not in this hall");
+                }
             }
 
             slot.setFree(false);
@@ -47,6 +54,7 @@ public class TicketDao implements ITicketDao{
             slotRepository.save(slot);
             ticketRepository.save(ticket);
         }catch (Exception e){
+            logger.error("failed to add ticket", e);
             throw new DAOException("failed add ticket " ,e);
         }
         return true;
