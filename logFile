@@ -1,0 +1,31 @@
+2021-06-13 19:28:59.295  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : Starting CinemaProjectApplication using Java 14.0.1 on DESKTOP-0OGP9H1 with PID 5792 (C:\Users\User\Desktop\cinemaProject\target\classes started by User in C:\Users\User\Desktop\cinemaProject)
+2021-06-13 19:28:59.297  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : No active profile set, falling back to default profiles: default
+2021-06-13 19:28:59.356  WARN 5792 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-06-13 19:28:59.880  INFO 5792 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-13 19:28:59.945  INFO 5792 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+2021-06-13 19:29:00.204  INFO 5792 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@332820f4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-13 19:29:00.209  INFO 5792 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-06-13 19:29:00.400  INFO 5792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-13 19:29:00.408  INFO 5792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-13 19:29:00.408  INFO 5792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-06-13 19:29:00.506  INFO 5792 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-13 19:29:00.506  INFO 5792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1166 ms
+2021-06-13 19:29:00.628  INFO 5792 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-06-13 19:29:00.772  INFO 5792 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-06-13 19:29:00.812  INFO 5792 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-13 19:29:00.848  INFO 5792 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.31.Final
+2021-06-13 19:29:00.941  INFO 5792 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-06-13 19:29:01.021  INFO 5792 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-06-13 19:29:01.763  INFO 5792 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-13 19:29:01.770  INFO 5792 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-13 19:29:02.142  WARN 5792 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-06-13 19:29:02.281  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-06-13 19:29:02.312  INFO 5792 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6148827c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7dfec0bc, org.springframework.security.web.header.HeaderWriterFilter@6fe9c048, org.springframework.security.web.authentication.logout.LogoutFilter@44e4cf8a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1bf52f10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52ccf197, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@54530644, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4da9da6c, org.springframework.security.web.session.SessionManagementFilter@1ddba7a0, org.springframework.security.web.access.ExceptionTranslationFilter@c7cf8c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7aca299e]
+2021-06-13 19:29:02.484  INFO 5792 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-13 19:29:02.662  INFO 5792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-13 19:29:02.671  INFO 5792 --- [main] c.cinema.core.CinemaProjectApplication   : Started CinemaProjectApplication in 3.81 seconds (JVM running for 4.427)
+2021-06-13 19:29:02.672  INFO 5792 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2021-06-13 19:29:02.674  INFO 5792 --- [main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2021-06-13 19:29:02.674 ERROR 5792 --- [main] c.cinema.core.CinemaProjectApplication   : hello
