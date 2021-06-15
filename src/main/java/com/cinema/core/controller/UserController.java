@@ -1,4 +1,3 @@
-/*
 package com.cinema.core.controller;
 
 import com.cinema.core.entity.Film;
@@ -40,4 +39,4 @@ public class UserController {
 
 
 }
-*/
+
