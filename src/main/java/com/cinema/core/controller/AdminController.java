@@ -7,7 +7,6 @@ import com.cinema.core.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -39,7 +38,6 @@ public class AdminController {
     @PreAuthorize("hasAuthority('admin:remFilm')")
     @DeleteMapping("/rem/film")
     public Boolean removeFilm(@RequestParam(value = "id")Long id){
-        adminService.adminRemoveFilmById(id);
         return adminService.adminRemoveFilmById(id);
     }
 
@@ -48,7 +46,6 @@ public class AdminController {
     public Boolean updateFilm(@RequestParam(value = "id") Long id,
                              @RequestParam(value = "title")String title,
                              @RequestParam(value = "description")String description){
-        adminService.adminUpdateFilmById(id,title,description);
         return adminService.adminUpdateFilmById(id,title,description);
     }
 
@@ -65,27 +62,25 @@ public class AdminController {
     @PreAuthorize("hasAuthority('admin:remSession')")
     @DeleteMapping("/rem/session")
     public Boolean removeSessionById(@RequestParam(value = "sessionId") Long sessionId){
-        adminService.adminRemoveSessionById(sessionId);
         return adminService.adminRemoveSessionById(sessionId);
     }
+
     @PreAuthorize("hasAuthority('admin:getAllSessions')")
     @GetMapping("/get/sessions")
     public List<Session> getAllSessionsByFilmId(@RequestParam(value = "filmId") Long filmId){
-        adminService.adminGetAllSessionsByFilmId(filmId);
         return adminService.adminGetAllSessionsByFilmId(filmId);
     }
 
     @PreAuthorize("hasAuthority('admin:addHall')")
     @PostMapping("/add/hall")
     public Boolean addHall(){
-        adminService.adminAddHall();
         return adminService.adminAddHall();
     }
+
     @PreAuthorize("hasAuthority('admin:remHall')")
     @DeleteMapping("/rem/hall")
-    public Boolean removeHall(@RequestParam(value = "hallId") Long id){
-        adminService.adminRemoveHall(id);
-        return adminService.adminRemoveHall(id);
+    public Boolean removeHall(@RequestParam(value = "id") Long hallId){
+        return adminService.adminRemoveHall(hallId);
     }
 
 

@@ -1,7 +1,6 @@
 package com.cinema.core.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "slots")
@@ -23,7 +22,7 @@ public class Slot {
 
 
 
-    @OneToOne(mappedBy = "slot")
+    @OneToOne(mappedBy = "slot",cascade = CascadeType.ALL, orphanRemoval = true)
     Ticket ticket;
 
     public Slot() {

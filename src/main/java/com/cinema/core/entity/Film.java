@@ -19,7 +19,7 @@ public class Film {
     private String description;
 
 
-    @OneToMany(mappedBy = "film")
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Session> sessions;
 
 

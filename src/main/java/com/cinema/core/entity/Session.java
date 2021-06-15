@@ -18,21 +18,16 @@ public class Session {
     @Column(name = "session_time", nullable = false)
     private String session_time;
 
-
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hall;
-
 
     @ManyToOne
     @JoinColumn(name = "film_id")
     private Film film;
 
-
-    @OneToMany(mappedBy = "session")
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Ticket> tickets;
-
-
 
     public Session() {
     }

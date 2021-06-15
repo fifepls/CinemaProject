@@ -1,8 +1,7 @@
+/*
 package com.cinema.core.service.impl;
 
 import com.cinema.core.DAO.DAOException;
-import com.cinema.core.DAO.IFilmDao;
-import com.cinema.core.DAO.ISessionDao;
 import com.cinema.core.DAO.ITicketDao;
 import com.cinema.core.entity.Film;
 import com.cinema.core.entity.Session;
@@ -55,3 +54,4 @@ public class UserServiceImpl implements IUserService {
         return Collections.emptyList();
     }
 }
+*/

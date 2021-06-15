@@ -11,10 +11,10 @@ public class Hall {
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy = "hall")
+    @OneToMany(mappedBy = "hall",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Session> sessions;
 
-    @OneToMany(mappedBy = "hallSlot")
+    @OneToMany(mappedBy = "hallSlot",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Slot> slots;
 
     public Hall() {

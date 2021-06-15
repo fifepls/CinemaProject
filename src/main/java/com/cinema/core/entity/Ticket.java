@@ -16,7 +16,6 @@ public class Ticket {
     @JoinColumn(name = "session_id")
     Session session;
 
-
     @OneToOne
     @JoinColumn(name = "slot_id")
     Slot slot;
