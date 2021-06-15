@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class UserServiceImpl implements IUserService {
         this.slotRepository = slotRepository;
     }
 
+    @Transactional
     @Override
     public Boolean buyTicket(Long sessionId, Long slotId){
         try{
@@ -64,6 +67,8 @@ public class UserServiceImpl implements IUserService {
             return false;
         }
     }
+
+    @Transactional
     @Override
     public List<Film> getListOfFilms() {
         try {
@@ -74,6 +79,8 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
+
+    @Transactional
     @Override
     public List<Session> getListOfSessionsByFilmId(Long filmId) {
         try {
