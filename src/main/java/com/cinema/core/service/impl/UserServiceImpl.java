@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService {
     public Boolean buyTicket(Long sessionId, Long slotId){
         try{
             if(sessionId == null || slotId == null){
-                throw new Exception("session or slot id is null");
+                throw new DAOException("session or slot id is null");
             }
             Session session = sessionRepository.findById(sessionId).orElseThrow(Exception::new);
             Slot slot = slotRepository.findById(slotId).orElseThrow(Exception::new);
