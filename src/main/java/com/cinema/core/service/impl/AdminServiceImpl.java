@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
 @Service
 public class AdminServiceImpl implements IAdminService {
 
@@ -38,71 +37,6 @@ public class AdminServiceImpl implements IAdminService {
         this.sessionRepository = sessionRepository;
         this.slotRepository = slotRepository;
         this.ticketRepository = ticketRepository;
-    }
-
-    @Transactional(rollbackOn = Exception.class)
-    public Boolean adminAddNewFilm(String title, String description) {
-        try{
-            if(title == null || description == null){
-                logger.error("title or description is null, film doesnt added");
-                throw new DAOException("title or description is null, film doesnt added");
-            }
-
-            Film newFilm = new Film(title,description);
-            filmRepository.save(newFilm);
-            return true;
-        }catch (DAOException e){
-            logger.error("failed to add new film", e);
-            return false;
-        }
-    }
-
-    @Transactional(rollbackOn = Exception.class)
-    public Boolean adminRemoveFilmById(Long id){
-        try{
-            if(id == null){
-                logger.error("id is null, film not removed");
-                throw new DAOException("id is null, film not removed");
-            }
-
-            Film film = filmRepository.findById(id).orElseThrow(DAOException::new);
-            for (Session session : film.getSessions()) {
-                ticketRepository.deleteAllBySessionId(session.getId());
-            }
-
-            filmRepository.deleteById(id);
-            return true;
-        }catch (DAOException e){
-            logger.error("failed to remove film by id", e);
-            return false;
-        }
-    }
-
-    @Transactional(rollbackOn = Exception.class)
-    public Boolean adminUpdateFilmById(Long filmId, String newTitle, String newDescription){
-       try{
-           if(filmId == null){
-               logger.error("film id is empty, film doesnt updated");
-               throw new DAOException("film id is empty, film doesnt updated");
-           }
-           Film filmToUpdate = filmRepository.findById(filmId).orElseThrow(DAOException::new);
-           filmToUpdate.setTitle(newTitle);
-           filmToUpdate.setDescription(newDescription);
-           filmRepository.save(filmToUpdate);
-           return true;
-       }catch (DAOException e){
-           logger.error("film not found by id, film doesnt updated",e);
-           return false;
-       }
-    }
-
-    @Transactional(rollbackOn = Exception.class)
-    public List<Film> adminGetAllFilms(){
-        try{
-            return filmRepository.findAll();
-        }catch (Exception e){
-            return Collections.emptyList();
-        }
     }
 
     @Transactional(rollbackOn = Exception.class)
