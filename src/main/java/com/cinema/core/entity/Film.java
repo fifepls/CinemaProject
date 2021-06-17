@@ -2,6 +2,7 @@ package com.cinema.core.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "films")
@@ -35,6 +36,25 @@ public class Film {
     public Film(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public Film(Long id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return Objects.equals(title, film.title) && Objects.equals(description, film.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description);
     }
 
     public String getTitle() {

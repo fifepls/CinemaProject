@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmServiceImpl implements FilmService {
@@ -61,11 +62,14 @@ public class FilmServiceImpl implements FilmService {
                 logger.error("film id is empty, film doesnt updated");
                 throw new FilmNotUpdatedException("film id is empty, film doesnt updated");
             }
-            Film filmToUpdate = filmRepository.findById(filmId).orElseThrow(DAOException::new);
+
+            Optional<Film> optionalFilmToUpdate = filmRepository.findById(filmId);
+            Film filmToUpdate = optionalFilmToUpdate.orElseThrow(FilmNotUpdatedException::new);
+
             filmToUpdate.setTitle(newTitle);
             filmToUpdate.setDescription(newDescription);
             return filmRepository.save(filmToUpdate);
-        }catch (DAOException e){
+        }catch (FilmNotUpdatedException e){
             logger.error("film not found by id, film doesnt updated",e);
             throw new FilmNotUpdatedException("film doesnt updated", e);
         }
