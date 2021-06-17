@@ -5,8 +5,8 @@ import com.cinema.core.entity.Film;
 import java.util.List;
 
 public interface FilmService {
-    public Boolean AddNewFilm(String title, String description);
-    public Boolean RemoveFilmById(Long id);
-    public Boolean UpdateFilmById(Long filmId, String newTitle, String newDescription);
-    public List<Film> GetAllFilms();
+    public Boolean addNewFilm(String title, String description);
+    public Boolean removeFilmById(Long id);
+    public Boolean updateFilmById(Long filmId, String newTitle, String newDescription);
+    public List<Film> getAllFilms();
 }

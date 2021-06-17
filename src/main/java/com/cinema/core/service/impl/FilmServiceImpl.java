@@ -3,22 +3,24 @@ package com.cinema.core.service.impl;
 import com.cinema.core.DAO.DAOException;
 import com.cinema.core.entity.Film;
 import com.cinema.core.repository.FilmRepository;
+import com.cinema.core.service.FilmService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 
-public class FilmServiceImpl {
+@Service
+public class FilmServiceImpl implements FilmService {
     private final FilmRepository filmRepository;
-    private final Logger logger = LoggerFactory.getLogger(FilmServiceImpl.class);=
+    private final Logger logger = LoggerFactory.getLogger(FilmServiceImpl.class);
 
     public FilmServiceImpl(FilmRepository filmRepository) {
         this.filmRepository = filmRepository;
     }
 
-    public Boolean adminAddNewFilm(String title, String description) {
+    public Boolean addNewFilm(String title, String description) {
         try{
             if(title == null || description == null){
                 logger.error("title or description is null, film doesnt added");
@@ -35,7 +37,7 @@ public class FilmServiceImpl {
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean adminRemoveFilmById(Long id){
+    public Boolean removeFilmById(Long id){
         try{
             if(id == null){
                 logger.error("id is null, film not removed");
@@ -51,7 +53,7 @@ public class FilmServiceImpl {
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean adminUpdateFilmById(Long filmId, String newTitle, String newDescription){
+    public Boolean updateFilmById(Long filmId, String newTitle, String newDescription){
         try{
             if(filmId == null){
                 logger.error("film id is empty, film doesnt updated");
@@ -69,7 +71,7 @@ public class FilmServiceImpl {
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public List<Film> adminGetAllFilms(){
+    public List<Film> getAllFilms(){
         try{
             return filmRepository.findAll();
         }catch (Exception e){

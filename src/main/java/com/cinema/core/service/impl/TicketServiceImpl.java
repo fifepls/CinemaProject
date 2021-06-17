@@ -1,37 +1,32 @@
 package com.cinema.core.service.impl;
 
 import com.cinema.core.DAO.DAOException;
-import com.cinema.core.entity.*;
-import com.cinema.core.repository.FilmRepository;
+import com.cinema.core.entity.Hall;
+import com.cinema.core.entity.Session;
+import com.cinema.core.entity.Slot;
+import com.cinema.core.entity.Ticket;
 import com.cinema.core.repository.SessionRepository;
 import com.cinema.core.repository.SlotRepository;
 import com.cinema.core.repository.TicketRepository;
-import com.cinema.core.service.IUserService;
+import com.cinema.core.service.TicketService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class TicketServiceImpl implements TicketService {
+    private final Logger logger  = LoggerFactory.getLogger(TicketServiceImpl.class);
 
-    private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-    private final TicketRepository ticketRepository;
-    private final FilmRepository filmRepository;
     private final SessionRepository sessionRepository;
     private final SlotRepository slotRepository;
+    private final TicketRepository ticketRepository;
 
-    @Autowired
-    public UserServiceImpl(TicketRepository ticketRepository, FilmRepository filmRepository,
-                           SessionRepository sessionRepository, SlotRepository slotRepository) {
-        this.ticketRepository = ticketRepository;
-        this.filmRepository = filmRepository;
+    public TicketServiceImpl(SessionRepository sessionRepository, SlotRepository slotRepository, TicketRepository ticketRepository) {
         this.sessionRepository = sessionRepository;
         this.slotRepository = slotRepository;
+        this.ticketRepository = ticketRepository;
     }
 
     @Transactional
@@ -54,7 +49,6 @@ public class UserServiceImpl implements IUserService {
                     throw new DAOException("slot with id " +slotId + " not in this hall");
                 }
             }
-
             slot.setFree(false);
             Ticket ticket = new Ticket();
             ticket.setSession(session);
@@ -67,31 +61,4 @@ public class UserServiceImpl implements IUserService {
             return false;
         }
     }
-
-    @Transactional
-    @Override
-    public List<Film> getListOfFilms() {
-        try {
-            return filmRepository.findAll();
-        } catch (Exception e) {
-            logger.error("failed to get list of films");
-            return Collections.emptyList();
-        }
-    }
-
-
-    @Transactional
-    @Override
-    public List<Session> getListOfSessionsByFilmId(Long filmId) {
-        try {
-            if(filmId == null){
-                throw new DAOException();
-            }
-            return sessionRepository.findAllByFilmId(filmId);
-        } catch (DAOException e){
-            logger.error("failed to find sessions by film id", e);
-            return Collections.emptyList();
-        }
-    }
 }
-
