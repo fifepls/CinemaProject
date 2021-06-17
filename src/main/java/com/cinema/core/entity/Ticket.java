@@ -1,6 +1,7 @@
 package com.cinema.core.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -26,6 +27,19 @@ public class Ticket {
     public Ticket(Session session, Slot slot) {
         this.session = session;
         this.slot = slot;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(id, ticket.id) && Objects.equals(session, ticket.session) && Objects.equals(slot, ticket.slot);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, session, slot);
     }
 
     public Long getId() {

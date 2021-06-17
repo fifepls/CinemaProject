@@ -1,6 +1,7 @@
 package com.cinema.core.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "slots")
@@ -24,6 +25,19 @@ public class Slot {
 
     @OneToOne(mappedBy = "slot",cascade = CascadeType.ALL, orphanRemoval = true)
     Ticket ticket;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Slot slot = (Slot) o;
+        return Objects.equals(id, slot.id) && Objects.equals(hallSlot, slot.hallSlot) && Objects.equals(isFree, slot.isFree) && Objects.equals(slotPosition, slot.slotPosition) && Objects.equals(ticket, slot.ticket);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, hallSlot, isFree, slotPosition, ticket);
+    }
 
     public Slot() {
     }

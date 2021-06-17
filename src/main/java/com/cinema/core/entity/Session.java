@@ -3,6 +3,7 @@ package com.cinema.core.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "sessions")
@@ -45,6 +46,19 @@ public class Session {
         this.session_time = session_time;
         this.hall = hall;
         this.film = film;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Session session = (Session) o;
+        return Objects.equals(id, session.id) && Objects.equals(ticketPrice, session.ticketPrice) && Objects.equals(session_time, session.session_time) && Objects.equals(hall, session.hall) && Objects.equals(film, session.film) && Objects.equals(tickets, session.tickets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, ticketPrice, session_time, hall, film, tickets);
     }
 
     public Long getId() {
