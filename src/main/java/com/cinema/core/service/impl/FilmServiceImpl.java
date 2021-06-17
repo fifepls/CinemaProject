@@ -4,6 +4,9 @@ import com.cinema.core.DAO.DAOException;
 import com.cinema.core.entity.Film;
 import com.cinema.core.repository.FilmRepository;
 import com.cinema.core.service.FilmService;
+import com.cinema.core.service.exception.FilmNotAddedException;
+import com.cinema.core.service.exception.FilmNotRemovedException;
+import com.cinema.core.service.exception.FilmNotUpdatedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -20,53 +23,51 @@ public class FilmServiceImpl implements FilmService {
         this.filmRepository = filmRepository;
     }
 
-    public Boolean addNewFilm(String title, String description) {
+    public Film addNewFilm(String title, String description) throws FilmNotUpdatedException {
         try{
             if(title == null || description == null){
                 logger.error("title or description is null, film doesnt added");
-                throw new DAOException("title or description is null, film doesnt added");
+                throw new FilmNotAddedException("title or description is null, film doesnt added");
             }
 
             Film newFilm = new Film(title,description);
-            filmRepository.save(newFilm);
-            return true;
-        }catch (DAOException e){
+            return filmRepository.save(newFilm);
+        }catch (FilmNotAddedException e){
             logger.error("failed to add new film", e);
-            return false;
+            throw new FilmNotUpdatedException("failed to add new film",e);
         }
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean removeFilmById(Long id){
+    public Boolean removeFilmById(Long id) throws FilmNotRemovedException {
         try{
             if(id == null){
                 logger.error("id is null, film not removed");
-                throw new DAOException("id is null, film not removed");
+                throw new FilmNotRemovedException("id is null, film not removed");
             }
 
             filmRepository.deleteById(id);
             return true;
-        }catch (DAOException e){
+        }catch (FilmNotRemovedException e){
             logger.error("failed to remove film by id", e);
-            return false;
+            throw new FilmNotRemovedException("failed to remove film by id",e);
         }
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean updateFilmById(Long filmId, String newTitle, String newDescription){
+    public Film updateFilmById(Long filmId, String newTitle, String newDescription) throws FilmNotUpdatedException {
         try{
             if(filmId == null){
                 logger.error("film id is empty, film doesnt updated");
-                throw new DAOException("film id is empty, film doesnt updated");
+                throw new FilmNotUpdatedException("film id is empty, film doesnt updated");
             }
             Film filmToUpdate = filmRepository.findById(filmId).orElseThrow(DAOException::new);
             filmToUpdate.setTitle(newTitle);
             filmToUpdate.setDescription(newDescription);
-            filmRepository.save(filmToUpdate);
-            return true;
+            return filmRepository.save(filmToUpdate);
         }catch (DAOException e){
             logger.error("film not found by id, film doesnt updated",e);
-            return false;
+            throw new FilmNotUpdatedException("film doesnt updated", e);
         }
     }
 

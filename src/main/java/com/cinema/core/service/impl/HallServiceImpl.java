@@ -6,6 +6,7 @@ import com.cinema.core.entity.Slot;
 import com.cinema.core.repository.HallRepository;
 import com.cinema.core.repository.SlotRepository;
 import com.cinema.core.service.HallService;
+import com.cinema.core.service.exception.HallNotAddedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class HallServiceImpl implements HallService {
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean addHall(){
+    public Hall addHall() throws HallNotAddedException {
         try {
             Hall newHall = new Hall();
             newHall.setSlots(Stream.of(new Slot(newHall,1),//1
@@ -51,12 +52,11 @@ public class HallServiceImpl implements HallService {
                 slotRepository.save(slot);
             }
 
-            hallRepository.save(newHall);
-            return true;
+            return hallRepository.save(newHall);
 
         }catch (Exception e){
             logger.error("failed to add new hall",e);
-            return false;
+            throw new HallNotAddedException("failed to add new hall",e);
         }
     }
 

@@ -8,6 +8,7 @@ import com.cinema.core.repository.FilmRepository;
 import com.cinema.core.repository.HallRepository;
 import com.cinema.core.repository.SessionRepository;
 import com.cinema.core.service.SessionService;
+import com.cinema.core.service.exception.SessionNotAddedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -34,24 +35,21 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Transactional(rollbackOn = Exception.class)
-    public Boolean addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime){
+    public Session addSession(Long filmId, BigDecimal ticketPrice, Long hallId, String sessionTime) throws SessionNotAddedException {
         try{
             if(filmId == null || ticketPrice == null || hallId == null || sessionTime == null){
                 logger.error("film id, ticket price, hall id, session time is null");
-                throw new DAOException("film id, ticket price, hall id, session time is null");
+                throw new SessionNotAddedException("film id, ticket price, hall id, session time is null");
             }
 
-            Film film = filmRepository.findById(filmId).orElseThrow(DAOException::new);
-            Hall hall = hallRepository.findById(hallId).orElseThrow(DAOException::new);
+            Film film = filmRepository.findById(filmId).orElseThrow(SessionNotAddedException::new);
+            Hall hall = hallRepository.findById(hallId).orElseThrow(SessionNotAddedException::new);
 
             Session newSession = new Session(ticketPrice,sessionTime,hall,film);
-            sessionRepository.save(newSession);
-
-            return true;
-
-        } catch (DAOException e) {
+            return sessionRepository.save(newSession);
+        } catch (SessionNotAddedException e) {
             logger.error("film not found or hall not found", e);
-            return false;
+            throw new SessionNotAddedException("session not added",e);
         }
     }
 
